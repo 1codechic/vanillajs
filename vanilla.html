@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Vanilla JS</title>
+  </head>
+  <body>
+    <h1>Turn me Red</h1>
+
+    <p>
+      "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore
+      magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
+      consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+      Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum."
+    </p>
+
+    <button onmousedown="turnHeaderRed()">TurnRed</button>
+    <br />
+    <button onmousedown="addLeftPadding()">PaddingLeft</button>
+    <br />
+    <button onmousedown="addRandomColor()">Make a Random Color</button>
+
+    <style type="text/css">
+      .red {
+        color: red;
+      }
+
+      .leftPadding {
+        padding-left: 100px;
+      }
+    </style>
+
+    <script type="text/javascript">
+      function turnHeaderRed() {
+        var header = document.querySelector("h1");
+        header.classList.add("red");
+      }
+
+      function addLeftPadding() {
+        var header = document.querySelector("h1");
+        header.classList.add("leftPadding");
+      }
+
+      function addRandomColor() {
+        console.log('making header random color');
+        // get the header
+        var header = document.querySelector('h1');
+        // add some styling
+        header.style.color = getRandomColor();
+      //   setInterval(function() {
+      //     var body = document.querySelector('body');
+      //     body.style['background-color'] = getRandomColor();
+      //     console.log('doing a thing');
+      //   }, 100)
+      }
+
+      function getRandomColor() {
+        var letters = '0123456789ABCDEF';
+        var color = '#';
+        for (var i = 0; i < 6; i++) {
+          color += letters[Math.floor(Math.random() * 16)];
+        }
+        return color;
+      }
+      function setRandomColor() {
+        $("#colorpad").css("background-color", getRandomColor());
+      }
+    </script>
+  </body>
+</html>
